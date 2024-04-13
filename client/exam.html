@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles/exam.css" />
+    <title>Online Exam Portal</title>
+</head>
+
+<body>
+    <aside>
+        <h1>Status</h1>
+        <div class="container">
+            <div class="progress">
+                <div class="current-progress">
+                    <div class="progress-graph">
+                        <span>0%</span>
+                    </div>
+                    <h4>Completed</h4>
+                </div>
+                <hr />
+                <div class="ques-outline-box">
+                    <ul class="ques-maps">
+                        <li><span>1</span></li>
+                        <li><span>2</span></li>
+                        <li><span>3</span></li>
+                        <li><span>4</span></li>
+                        <li><span>5</span></li>
+                        <li><span>6</span></li>
+                        <li><span>7</span></li>
+                        <li><span>8</span></li>
+                        <li><span>9</span></li>
+                        <li><span>10</span></li>
+                    </ul>
+                    <h4></h4>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main>
+        <section id="launcher">
+            <div class="info-box">
+                <h2>Some Rules of this Test</h2>
+                <ol class="info_list">
+                    <li class="info">You will have only <span>15 seconds</span> to answer each question. </li>
+                    <li class="info">Once you select your answer, you can't reselect it.</li>
+                    <li class="info">You can't select any option once time goes off.</li>
+                    <li class="info">You can't exit from the Test while you're answering.</li>
+                    <li class="info">Scores will be calculated on the basis of number of questions answered.</li>
+                </ol>
+                <div class="action-btns">
+                    <button type="button" id="ghost-btn">Exit Test</button>
+                    <button type="button" id="begin-btn">Begin</button>
+                </div>
+            </div>
+        </section>
+        <section id="panel">
+            <header>
+                <h2>Choose the right Answer</h2>
+                <div class="timer">
+                    <strong>Time Left:</strong>
+                    <span>15</span>
+                </div>
+            </header>
+            <div class="wrapper">
+                <div class="questions-box">
+                    <!-- <div class="time_line-bar">
+                    
+                    </div> -->
+                    <div class="time_line"></div>
+                    <h3>
+                        <!-- question goes here -->
+                    </h3>
+                    <ol type="A" class="options">
+                        <!-- options goes here -->
+                    </ol>
+                </div>
+                <div class="actions">
+                    <button type="button" id="nxt-btn">
+                        <strong>Next</strong>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section id="result">
+            <div class="res-box">
+                <img src="assets/bg-result.gif" alt="" />
+                <i class="fa-solid fa-crown"></i>
+                <em>You've completed the Test!</em>
+                <div class="score-text">
+                    <!-- Here I've inserted Score Result from JavaScript -->
+                </div>
+                <div class="buttons">
+                    <button type="button" class="restart">Retry</button>
+                    <button type="button" class="quit">Quit</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="utils/questions.js"></script>
+    <script src="utils/exam.js"></script>
+</body>
+
+</html>

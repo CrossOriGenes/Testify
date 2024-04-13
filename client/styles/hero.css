@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    z-index: 10;
+}
+
+#Home button a {
+    text-decoration: none;
+    color: #fff;
+    transition: 0.4s ease !important;
+}
+
+#Home button:hover a {
+    color: #000 !important;
+}
+
+.navbar-nav {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding-right: 0 !important;
+}
+
+.nav-link {
+    padding: 0.5rem 0 !important;
+    font-size: 0.9rem !important;
+    color: #777 !important;
+}
+
+.nav-link:hover {
+    color: #fff !important; 
+}
+
+.nav-link.active {
+    /* background-color: #fff !important; */
+    font-size: 1.2rem !important;
+    color: #fff !important;
+}
+
+main {
+    position: relative;
+}
+
+section {
+    position: relative;
+    display: grid;
+    place-items: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+section#Home {
+    background: #080029;
+}
+
+.btn {
+    padding: 0.4rem 1.7rem !important;
+}
+
+.container {
+    align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
+}
+
+#Home .left,
+#Home .right,
+#Instr .left,
+#Instr .right {
+    position: relative;
+    min-width: 40rem;
+}
+
+#Instr .left {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+}
+
+#Home .main-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+#Instr .main-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: #080029;
+}
+
+p {
+    font-size: 0.94rem;
+    line-height: 1.5rem;
+    color: #555;
+    font-weight: 400;
+    margin-block: 1.5rem;
+}
+
+.hero-actions {
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem !important;
+}
+
+#Home .right {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+}
+
+#Home .right img,
+#Instr .left img {
+    max-width: 32rem;
+}
+
+.circle1 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #ab64ed;
+    clip-path: circle(35% at 95% 96%);
+}
+
+.circle2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #4c6868;
+    clip-path: circle(22% at 11% 1%);
+}
+
+#Instr .shape1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #81ffde;
+    clip-path: polygon(21% 0, 46% 48%, 0 91%, 0 70%, 25% 48%, 0% 0%);
+}
+
+#Instr .shape2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3a5afa;
+    clip-path: url(#clipPath);
+}
+
+#Instr .right ul {
+    font-size: 0.94rem;
+    line-height: 1.5rem;
+    margin-block: 1.5rem;
+}
+
+.right ul li {
+    color: #333;
+    font-weight: 400;
+}
+
+
+/* @media screen and (max-width: 1024px) {
+    .container {
+        width: 50rem;
+    }
+} */

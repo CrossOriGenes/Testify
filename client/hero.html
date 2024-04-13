@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/hero.css" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Begin Here</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar bg-none fixed-top" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#Home">
+                    <img src="assets/brand_logo-2.png" alt="Testify" width="135" height="40">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" data-bs-theme="dark"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body mx-auto">
+                        <ul class="navbar-nav flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#Home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#Instr">Instructions</a>
+                            </li>
+                        </ul>
+                        <form class="d-flex mt-3">
+                            <button class="btn btn-outline-primary" type="button" id="logout-btn">Logout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="Home">
+            <div class="circle1"></div>
+            <div class="circle2"></div>
+            <div class="container d-flex flex-grow-1">
+                <div class="content left">
+                    <h1 class="main-title">Online Exam Dashboard</h1>
+                    <p>The study of human learning continues to develop and expand.
+                        In institutions of higher education, the issue of utilizing
+                        modern information and communication technologies for
+                        teaching and learning is very important. It uses the latest
+                        technologies to assist and enhance knowledge distribution, and
+                        calls for flexible and active interactions amongst online
+                        teachers and students
+                    </p>
+                    <div class="hero-actions d-flex">
+                        <button type="button" class="btn btn-info" id="redirect-btn">Start Exam</button>
+                        <button type="button" class="btn btn-outline-light"><a href="#Instr">Instructions</a></button>
+                    </div>
+                </div>
+                <div class="content right">
+                    <img src="assets/SS3.png" class="image1" alt="hero" />
+                </div>
+            </div>
+        </section>
+        <section id="Instr">
+            <div class="shape1"></div>
+            <div class="shape2">
+                <svg width="0" height="0" viewBox="0 0 100 100">
+                    <defs>
+                        <clipPath id="clipPath" clipPathUnits="objectBoundingBox">
+                            <path
+                                d="M 0,0.964 C 0.078,1.02 0.628,1.076 0.77,0.742 C 0.82,0.646 0.856,0.436 1.002,0.468 L 1,1.006 L 0,1.006 L 0,0.964 Z">
+                            </path>
+                        </clipPath>
+                    </defs>
+                </svg>
+            </div>
+            <div class="container d-flex flex-grow-1">
+                <div class="content left">
+                    <img src="assets/SS4.png" class="image2" alt="hero2" />
+                </div>
+                <div class="content right">
+                    <h1 class="main-title">Instructions</h1>
+                    <ul type="square" class="instructions-list">
+                        <li>The examination does not require using any paper, pen, pencil and calculator. </li>
+                        <li>Every student will take the examination on a Laptop/Desktop/Smart Phone</li>
+                        <li>On computer screen every student will be given objective type type Multiple Choice Questions
+                            (MCQs).</li>
+                        <li>Each student will get questions and answers in different order selected randomly from a
+                            fixed Question Databank. </li>
+                        <li>The students just need to click on the Right Choice / Correct option from the
+                            multiple choices /options given with each question. For Multiple Choice Questions,
+                            each question has four options, and the candidate has to click the appropriate option.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+        </script>
+    <script src="utils/hero.js"></script>
+</body>
+
+</html>
