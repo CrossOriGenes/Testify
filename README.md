@@ -2,8 +2,10 @@
 
 ## _**A Basic Online Exam app using pure HTML, CSS, Bootstrap and Vanilla JS**_
 
+
 ### _**IMPORTANT NOTES**_ - 
    **- This project neither have a database connection setup nor a server**
+
 
 ## How to Use
 - This repository aims to assist you in working on a basic to advanced level frontend application for web deployment with a basic yet solid file structure as a foundation. 
@@ -19,4 +21,6 @@
 - #### `index.html` - The main page containing login / register form that appears at primary admin visit
 
 
-### _** ~ Thank You ~ **_
+
+
+### _**~ Thank You ~**_
