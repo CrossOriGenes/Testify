@@ -27,4 +27,4 @@
 
 
 
-### _**~Thank You~**_
+### _**Thank You**_
