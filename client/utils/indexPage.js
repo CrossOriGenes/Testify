@@ -288,9 +288,9 @@ loginForm.addEventListener('submit', (e) => {
         const isPasswordSame = isCandidateExists.password === entries.pswrd;
         if (isCandidateExists && !isPasswordSame) {
             const alertDiv = document.querySelector('#login-form .alert');
-            if (!alertDiv) {
+            if (!alertDiv) { //create a brand new alert if there is none
                 createAlert("Username/password is incorrect!", "login");
-            } else {
+            } else { //override the alert message of the existing
                 alertDiv.innerHTML = "<p>Username/password is incorrect!</p>";                
             }
             return;
