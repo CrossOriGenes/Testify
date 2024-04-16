@@ -546,7 +546,7 @@ section {
     cursor: pointer;
 }
 
-.buttons button.quit,
+.buttons button.restart,
 .action-btns button#ghost-btn {
     border: 2px solid #002ea1;
     background: none;
@@ -559,7 +559,7 @@ section {
     background: #073dc7;
 }
 
-.buttons button.quit:hover,
+.buttons button.restart:hover,
 .action-btns button#ghost-btn:hover {
     border: 2px solid #073dc7;
     background: #073dc7;

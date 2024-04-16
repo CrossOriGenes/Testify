@@ -14,6 +14,7 @@ const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
+//sets the panel slider left/right for login or signup as toggled
 signUpButton.addEventListener('click', () => {
     container.classList.add("right-panel-active");
     resetLoginForm();
@@ -52,22 +53,22 @@ function isNameValid() {
     const pattern = /^(?=.*\d).+$/;
     const val = registrNameInput.value
 
-    if (val == '') {
+    if (val == '') { //if username is empty
         errRegsUName.innerText = `user name is required!`;
         registrNameInput.classList.add('invalid');
         return false;
-    } else if (val.trim().length < 3) {
+    } else if (val.trim().length < 3) { //if username length is < 3
         errRegsUName.innerText = `user name too short!`;
         registrNameInput.classList.add('invalid');
         return false;
     }
     else {
-        if (pattern.test(val)) {
+        if (pattern.test(val)) { //if username doesn't match string pattern
             errRegsUName.innerText = `Improper user name!`;
             registrNameInput.classList.add('invalid');
             return false;
         }
-        else {
+        else { //valid username
             errRegsUName.innerText = ``;
             registrNameInput.classList.remove('invalid');
             return true;
@@ -80,22 +81,22 @@ function isMailValid() {
     const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
     const val = registrMailInput.value;
 
-    if (val == '') {
+    if (val == '') { //if email is empty
         errRegsMail.innerText = `Email is required!`;
         registrMailInput.classList.add('invalid');
         return false;
-    } else if (val.trim().length <= 12) {
+    } else if (val.trim().length <= 12) { //if email length is < 3
         errRegsMail.innerText = `Email too short!`;
         registrMailInput.classList.add('invalid');
         return false;
     }
     else {
-        if (pattern.test(val)) {
+        if (pattern.test(val)) { //if email doesn't match string pattern
             errRegsMail.innerText = ``;
             registrMailInput.classList.remove('invalid');
             return true;
         }
-        else {
+        else { //valid email
             errRegsMail.innerText = `Improper email Id!`;
             registrMailInput.classList.add('invalid');
             return false;
@@ -134,32 +135,32 @@ function isPswrdValid() {
     /* set strong weak or medium according to size */
     let strength = checkStrength(val);
 
-    if (strength == 0 || val == "") {
+    if (strength == 0 || val == "") { //if password is empty
         errRegsPswrd.innerHTML = `Password is Required!`;
         registrPswrdInput.style.border = '';
         registrPswrdInput.classList.add('invalid');
         return false;
     }
-    if (strength <= 2) {
+    if (strength <= 2) { //if password length is <= 2 
         errRegsPswrd.innerHTML = ``;
         registrPswrdInput.classList.add('invalid');
         return false;
     }
-    else if (strength >= 2 && strength <= 4) {
+    else if (strength >= 2 && strength <= 4) { //if password length is between 2 or 4
         errRegsPswrd.innerHTML = ``;
         registrPswrdInput.classList.remove('invalid');
         registrPswrdInput.style.border = '2.2px solid #ffd634';
         registrPswrdInput.style.backgroundColor = '#fbeeba';
         return false;
     }
-    else {
+    else { //valid password
         if (lower.test(val) && upper.test(val) && number.test(val) && special.test(val) && minlength.test(val)) {
             errRegsPswrd.innerHTML = ``;
             registrPswrdInput.classList.remove('invalid');
             registrPswrdInput.style.border = '2.2px solid #01e701';
             registrPswrdInput.style.backgroundColor = '#a7ffa7';
             return true;
-        } else {
+        } else { //if password doesn't match conditions
             errRegsPswrd.innerHTML = `Improper password!`;
             registrPswrdInput.classList.add('invalid');
             return false;
@@ -176,28 +177,46 @@ registerForm.addEventListener('submit', (e) => {
 
         const data = new FormData(registerForm);
         const entries = Object.fromEntries(data);
-        const newCandidate = {
-            id: Math.random().toString(16).substring(2, 10),
-            ...entries
-        };
-        CANDIDATE_LIST.push(newCandidate);
-        localStorage.setItem('Candidates', JSON.stringify(CANDIDATE_LIST));
 
-        console.log(newCandidate);
-        resetForm();
-        signInButton.click();
+        //check if a previous candidate with same mail Id exists or not 
+        const isCandidateExists = CANDIDATE_LIST.find(candt => candt.email === entries.email);
+        //get the alert popup
+        const alertDiv = document.querySelector('#signup-form .alert');
+
+        if (isCandidateExists) { //if an existing candidate is found
+            if (!alertDiv) {
+                createAlert("A candidate with this email already exists!", "signup");
+            }
+            return;
+        } else {
+            //register a new candidate
+            const newCandidate = {
+                id: Math.random().toString(16).substring(2, 10),
+                ...entries
+            };
+            CANDIDATE_LIST.push(newCandidate);
+            localStorage.setItem('Candidates', JSON.stringify(CANDIDATE_LIST)); //store in the localstorage 
+
+            console.log(newCandidate);
+            resetForm(); //reset the form
+            signInButton.click(); //auto shift to the login panel 
+        }
     } else {
         return;
     }
 
 });
 
-function resetForm() {
+function resetForm() { //reset the entire form
     registerForm.reset();
     registrPswrdInput.classList.remove('invalid');
     registrPswrdInput.style.border = '';
     registrPswrdInput.style.backgroundColor = '';
     errRegsPswrd.innerHTML = '';
+    const alertDiv = document.querySelector('#signup-form .alert');
+    if (alertDiv) {
+        registerForm.removeChild(alertDiv);
+    }
 }
 
 
@@ -220,12 +239,12 @@ loginPswrdInput.addEventListener('keyup', isPasswordExists);
 function isMailExists() {
     const val = loginMailInput.value;
 
-    if (val == "") {
+    if (val == "") { //if email is empty
         errLoginMail.innerText = `Email is required!`;
         loginMailInput.classList.add('invalid');
         return false;
     }
-    else {
+    else { // email is provided
         errLoginMail.innerText = ``;
         loginMailInput.classList.remove('invalid');
         return true;
@@ -235,13 +254,13 @@ function isMailExists() {
 function isPasswordExists() {
     let val = loginPswrdInput.value;
 
-    if (val == "") {
+    if (val == "") { //if password is empty
         errLoginPswrd.innerHTML = `Password is Required!`;
         loginPswrdInput.style.border = '';
         loginPswrdInput.classList.add('invalid');
         return false;
     }
-    else {
+    else { //password is provided
         errLoginPswrd.innerHTML = ``;
         loginPswrdInput.classList.remove('invalid');
         return true;
@@ -258,47 +277,53 @@ loginForm.addEventListener('submit', (e) => {
         const data = new FormData(loginForm);
         const entries = Object.fromEntries(data);
 
+        //check for the mail Id from the existing candidates list
         const isCandidateExists = CANDIDATE_LIST.find(candt => candt.email === entries.mail);
-        const isPasswordSame = isCandidateExists.password === entries.pswrd;
 
-        if (isCandidateExists) {
-            if (isPasswordSame) {
-                resetLoginForm();
-                window.location.href = "./hero.html";
-            } else {
-                const alertDiv = document.querySelector('.alert');
-                if (!alertDiv) {
-                    createAlert();
-                }
-                return;
-            }
-        } else {
-            createAlert();
+        if (!isCandidateExists) { //if candidate is not registered till now
+            createAlert("Candidate doesn't exists!", "login");
             return;
         }
-    } else {
-        return;
+        //candidate is found but passwords unmatched
+        const isPasswordSame = isCandidateExists.password === entries.pswrd;
+        if (isCandidateExists && !isPasswordSame) {
+            const alertDiv = document.querySelector('#login-form .alert');
+            if (!alertDiv) {
+                createAlert("Username/password is incorrect!", "login");
+            } else {
+                alertDiv.innerHTML = "<p>Username/password is incorrect!</p>";                
+            }
+            return;
+        } else { //all candidate credentials matched and redirected to homepage
+            resetLoginForm();
+            window.location.href = "./hero.html";
+        }
     }
-
 });
 
+//function to reset login form 
 function resetLoginForm() {
     loginForm.reset();
     loginPswrdInput.classList.remove('invalid');
     loginPswrdInput.style.border = '';
     loginPswrdInput.style.backgroundColor = '';
     errLoginPswrd.innerHTML = '';
-    const alertDiv = document.querySelector('.alert');
+    const alertDiv = document.querySelector('#login-form .alert');
     if (alertDiv) {
         loginForm.removeChild(alertDiv);
     }
 }
 
-function createAlert() {
+//function to create a brand new alert popup
+function createAlert(msg, type) {
     const alertDiv = document.createElement('div');
     alertDiv.setAttribute("class", "alert");
     alertDiv.classList.add("alert-danger");
     alertDiv.setAttribute("role", "alert");
-    alertDiv.innerHTML = "<p>Username/password is incorrect!<p>";
-    loginForm.append(alertDiv);
+    alertDiv.innerHTML = `<p>${msg}<p>`;
+    if (type === "login") {
+        loginForm.append(alertDiv);
+    } else {
+        registerForm.append(alertDiv);
+    }
 }
