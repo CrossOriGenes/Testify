@@ -12,13 +12,13 @@
 - Since this project doesn't involve any server scripts you can use your own localhost/browser to simply navigate into the folder directive to see the project.
    
 ## File structure
-#### `client` - Holds the entire frontend files structure
-- #### `assets` - This folder holds assets such as images, icons and gifs
-- #### `css` - This folder holds all the CSS files
-- #### `js` - It holds all the JS files containing the necessary functionalities and validations
-- #### `exam.html` - This is the html file containing the question panel and the entire portal
-- #### `hero.html` - A basic landing dashboard redirected after login furthur redirecting to the exam portal page
-- #### `index.html` - The main page containing login / register form that appears at primary admin visit
+ #### `assets` - This folder holds assets such as images, icons and gifs
+ #### `css` - This folder holds all the CSS files
+ #### `js` - It holds all the JS files containing the necessary functionalities and validations
+ #### `exam.html` - This is the html file containing the question panel and the entire portal
+ #### `hero.html` - A basic landing dashboard redirected after login furthur redirecting to the exam portal page
+ #### `index.html` - The main page containing login / register form that appears at primary admin visit
+ #### `README.md` - This very file 
 
 
 
